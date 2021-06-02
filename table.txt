@@ -54,3 +54,5 @@ insert into commodity
 update commodity set purchaser_id=null,stock=10,purchase_number=null,purchase_date=null;
 
 /Applications/XAMPP/xamppfiles/bin/mysqldump -u root -p original_system > export.sql;
+
+test memo
