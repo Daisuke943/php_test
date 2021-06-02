@@ -1,0 +1,56 @@
+create database original_system;
+
+create table userdata(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name CHAR(10),
+email CHAR(20) NOT NULL,
+password CHAR(50) NOT NULL,
+gender CHAR(1),
+old INT
+);
+
+create table commodity(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name CHAR(20) NOT NULL,
+price INT NOT NULL,
+description CHAR(50) NOT NULL,
+image_url TEXT,
+purchaser_id INT
+);
+
+alter table commodity add stock int;
+alter table commodity add purchase_number int;
+alter table commodity add purchase_date datetime;
+
+// 商品情報の登録
+insert into commodity
+(name,price,description,image_url)value('banana',200,'test1','./images/banana.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('grapes',300,'test2','./images/grapes.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('apple',100,'test3','./images/apple.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('orange',100,'test4','./images/orange.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('strawberry',400,'test5','./images/strawberry.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('pineapple',500,'test6','./images/pineapple.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('tangerines',100,'test7','./images/tangerines.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('mango',700,'test8','./images/mango.jpg');
+
+insert into commodity
+(name,price,description,image_url)value('kiwi',100,'test9','./images/kiwi.jpg');
+
+// 商品を戻す
+update commodity set purchaser_id=null,stock=10,purchase_number=null,purchase_date=null;
+
+/Applications/XAMPP/xamppfiles/bin/mysqldump -u root -p original_system > export.sql;
